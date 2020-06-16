@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import './App.css';
 
@@ -7,6 +7,8 @@ const HomePage = props => {
   console.log(props)
   return (
     <div>
+    {/* We borrow our topics URL just tell tell our spa what to re-render.*/}
+    <Link to='/topics'>Topics</Link>
       <h1>HOME PAGE</h1>
     </div>
   );
