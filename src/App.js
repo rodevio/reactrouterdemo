@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -7,8 +7,8 @@ const HomePage = props => {
   console.log(props)
   return (
     <div>
-    {/* We borrow our topics URL just tell tell our spa what to re-render.*/}
-    <Link to='/topics'>Topics</Link>
+    {/* The alternative, is to use the History prop. Is equivalent to use Link, but we can control when we want it to actually work. It gives us more dynamic access.*/}
+    <button onClick={() => props.history.push('/topics')}>Topics</button>
       <h1>HOME PAGE</h1>
     </div>
   );
