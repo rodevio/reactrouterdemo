@@ -49,8 +49,11 @@ constructor() {
 render() {
     return (
     <div className='directory-menu'>
+    {/* This is a bad habit called prop drilling (adding history prop)*/}
+{/* Because we are drilling these props multiple children deep in order to get them to the component that needs them.}
+{/* The children inbetween do not need the history property for any reason. Other than to pass it to their children.*/}
         {this.state.sections.map(({ id, title, imageUrl, size }) => (
-        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} history={this.props.history} />
         ))}
     </div>
     );
