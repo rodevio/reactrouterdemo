@@ -1,11 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import './menu-item.styles.scss';
-{/* This is a bad habit called prop drilling (adding history prop)*/}
-{/* Because we are drilling these props multiple children deep in order to get them to the component that needs them.}
-{/* The children inbetween do not need the history property for any reason. Other than to pass it to their children.*/}
-const MenuItem = ({ title, imageUrl, size, history }) => (
-<div className={`${size} menu-item`}>
+const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
+<div className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
     <div
     className='background-image'
     style={{
@@ -19,4 +17,4 @@ const MenuItem = ({ title, imageUrl, size, history }) => (
 </div>
 );
 
-export default MenuItem;
+export default withRouter(MenuItem);
